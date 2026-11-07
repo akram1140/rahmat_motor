@@ -27,7 +27,7 @@
           }
         @endphp
         <div class="gallery__item scroll-reveal" onclick="openLightbox(this)">
-          <img src="{{ $imgPath }}" alt="{{ $foto->judul }}" loading="lazy">
+          <img src="{{ $imgPath }}" alt="{{ $foto->judul }}" loading="lazy" decoding="async">
           <div class="gallery__item-overlay">
             <span>{{ $foto->judul }}</span>
           </div>

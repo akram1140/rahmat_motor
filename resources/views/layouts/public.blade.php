@@ -18,7 +18,7 @@
   <header class="navbar" id="navbar">
     <div class="container navbar__inner">
       <a href="{{ route('home') }}" class="navbar__logo" id="logo">
-        <img src="{{ asset('assets/images/logo.png') }}" alt="{{ $pengaturan->nama_bengkel ?? 'Rahmat Motor' }}" class="navbar__logo-img">
+        <img src="{{ asset('assets/images/logo.png') }}" alt="{{ $pengaturan->nama_bengkel ?? 'Rahmat Motor' }}" class="navbar__logo-img" decoding="async">
         <span class="navbar__logo-text"><span class="navbar__logo-name">RAHMAT</span> <span class="navbar__logo-sub">MOTOR</span></span>
       </a>
 
@@ -31,10 +31,16 @@
         <a href="{{ route('kontak') }}" class="navbar__link {{ request()->routeIs('kontak') ? 'active' : '' }}" id="nav-kontak">Kontak</a>
       </nav>
 
-      <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $pengaturan->whatsapp ?? '6282300017150') }}?text={{ urlencode('Halo Rahmat Motor, saya ingin bertanya tentang layanan servis.') }}" class="navbar__cta navbar__cta-desktop" id="nav-cta" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        Hubungi Kami
-      </a>
+      <div class="navbar__actions-group">
+        <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $pengaturan->whatsapp ?? '6282300017150') }}?text={{ urlencode('Halo Rahmat Motor, saya ingin bertanya tentang layanan servis.') }}" class="navbar__cta navbar__cta-desktop" id="nav-cta" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Hubungi Kami
+        </a>
+        <a href="{{ route('admin.login') }}" class="navbar__admin-btn navbar__admin-desktop" id="nav-admin" title="Login Panel Admin Bengkel">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>ADMIN</span>
+        </a>
+      </div>
 
       <button class="navbar__hamburger" id="hamburger-btn" aria-label="Toggle menu">
         <span></span>
@@ -54,6 +60,10 @@
     <a href="{{ route('kontak') }}" class="mobile-menu__link {{ request()->routeIs('kontak') ? 'active' : '' }}">Kontak</a>
     <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $pengaturan->whatsapp ?? '6282300017150') }}?text={{ urlencode('Halo Rahmat Motor, saya ingin bertanya tentang layanan servis.') }}" class="mobile-menu__cta" target="_blank" rel="noopener">
       Hubungi via WhatsApp
+    </a>
+    <a href="{{ route('admin.login') }}" class="mobile-menu__cta" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); margin-top: 8px;">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:6px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Login Admin
     </a>
   </div>
 

@@ -20,11 +20,17 @@
   <section class="section about" style="padding: 3.5rem 0;">
     <div class="container">
       <div class="about__grid">
-        <div class="about__image-wrapper scroll-reveal-left">
-          <img src="{{ asset('assets/images/about-bengkel.jpeg') }}" alt="Mekanik Rahmat Motor sedang melakukan servis motor" loading="lazy">
-          <div class="about__experience-badge">
-            <strong>10+</strong>
-            <span>Tahun Pengalaman</span>
+        <div class="about__image-wrapper scroll-reveal-left holo-card" data-preset="glass">
+          <span class="holo-card__shadow" aria-hidden="true"></span>
+          <div class="holo-card__rotor">
+            <div class="holo-card__face holo-card__face--front">
+              <img src="{{ asset('assets/images/about-bengkel.jpeg') }}" alt="Mekanik Rahmat Motor sedang melakukan servis motor" loading="lazy" decoding="async">
+              <canvas class="holo-card__canvas"></canvas>
+            </div>
+            <div class="about__experience-badge">
+              <strong>10+</strong>
+              <span>Tahun Pengalaman</span>
+            </div>
           </div>
         </div>
 
